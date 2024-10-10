@@ -2,10 +2,10 @@
 
 .searchBar {
   .type {
-
-    @include sm{
-     //   margin-bottom: 5px;
+    @include sm {
+      // margin-bottom: 5px;
     }
+
     button {
       padding: 16px 36px;
       border: 1px solid #999;
@@ -13,30 +13,35 @@
       cursor: pointer;
       background-color: white;
       text-transform: capitalize;
+
       &.active {
         background-color: black;
         color: white;
       }
+
       &:first-child {
         border-top-left-radius: 5px;
         border-right: none;
 
-        @include sm{
-         //   border-bottom: 1px solid #999;
+        @include sm {
+          // border-bottom: 1px solid #999;
         }
       }
+
       &:last-child {
         border-top-right-radius: 5px;
         border-left: none;
       }
     }
   }
+
   form {
     border: 1px solid #999;
     display: flex;
     justify-content: space-between;
     height: 64px;
     gap: 5px;
+
     @include sm {
       flex-direction: column;
       border: none;
@@ -46,45 +51,45 @@
       border: none;
       padding: 0px 10px;
       width: 200px;
+
       @include lg {
         width: auto;
+
         &:nth-child(2),
         &:nth-child(3) {
           width: 140px;
-        }
-        @include sm {
-          padding: 20px;
         }
       }
 
       @include md {
         width: 200px;
+
         &:nth-child(2),
         &:nth-child(3) {
           width: 200px;
         }
       }
 
-      @include sm{
+      @include sm {
         width: auto;
+        padding: 20px;
+        border: 1px solid #999;
         &:nth-child(2),
         &:nth-child(3) {
           width: auto;
         }
-        padding: 20px;
-        border: 1px solid #999;
+      }
     }
 
-    }
     button {
       border: none;
       cursor: pointer;
       background-color: #fece51;
       flex: 1;
 
-      @include sm{
-       padding: 10px;
-    }
+      @include sm {
+        padding: 10px;
+      }
 
       img {
         height: 24px;
