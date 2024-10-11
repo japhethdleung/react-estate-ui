@@ -57,6 +57,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'test-react-web'
-          slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_99103681635D4152A20F30C6F262F19E }}
