@@ -49,7 +49,7 @@ jobs:
           npm run test --if-present
       - name: npm build
         run: |
-          npm build
+          npm run build
 
       - name: "Deploy to Azure WebApp"
         id: deploy-to-webapp
