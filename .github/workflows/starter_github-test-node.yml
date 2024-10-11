@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - github-test-node
 on:
   push:
     branches:
-      - starter
+      - completed
   workflow_dispatch:
 
 jobs:
