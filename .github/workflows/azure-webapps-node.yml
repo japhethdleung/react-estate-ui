@@ -47,9 +47,4 @@ jobs:
         publish-profile: ${{ secrets.GIT_TEST_NODE_SECRET_PROFILE }} # Store your publish profile as a secret
         package: './deploy.zip'
 
-    # Post-deployment: Restart Azure App Service
-    - name: Restart Azure App Service
-      uses: azure/appservice-actions/webapps@v1
-      with:
-        app-name: 'github-test-node'
-        resource-group: 'ytmp-rg' # Replace with your Azure resource group name
+   
