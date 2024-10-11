@@ -10,41 +10,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the repository
-    - name: 'Checkout GitHub Action'
-      uses: actions/checkout@v2
+      # Checkout the repository
+      - name: "Checkout GitHub Action"
+        uses: actions/checkout@v2
 
-    # Set up Node.js environment
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18.x' # Use the Node.js version that matches your application
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x" # Use the Node.js version that matches your application
 
-    # Install dependencies
-    - name: Install dependencies
-      run: npm install
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-    # Build React app
-    - name: Build React app
-      run: npm run build
+      # Build React app
+      - name: Build Vite app
+        run: npm run build
 
-    # Publish the React app output to the `client/build` folder
-    - name: Publish React build output
-      run: |
-        mkdir -p client/build
-        mv build/* client/build/
+      # Debug step to list the directory after build
+      - name: List files after build
+        run: ls -al
 
-    # Zip the Node.js server and React build files
-    - name: Prepare files for deployment
-      run: zip -r deploy.zip client server # Adjust the directories based on your project structure
+      # Publish the Vite app output to the `client/dist` folder
+      - name: Publish Vite build output
+        run: |
+          mkdir -p client/dist
+          mv dist/* client/dist/
 
-    # Deploy to Azure Web App using Azure CLI
-    - name: 'Deploy to Azure Web App'
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'github-test-node' # Replace with your Azure Web App name
-        #slot-name: 'production'
-        publish-profile: ${{ secrets.GIT_TEST_NODE_SECRET_PROFILE }} # Store your publish profile as a secret
-        package: './deploy.zip'
+      # Zip the Node.js server and React build files
+      - name: Prepare files for deployment
+        run: zip -r deploy.zip client server # Adjust the directories based on your project structure
 
-   
+      # Deploy to Azure Web App using Azure CLI
+      - name: "Deploy to Azure Web App"
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "github-test-node" # Replace with your Azure Web App name
+          #slot-name: 'production'
+          publish-profile: ${{ secrets.GIT_TEST_NODE_SECRET_PROFILE }} # Store your publish profile as a secret
+          package: "./deploy.zip"
