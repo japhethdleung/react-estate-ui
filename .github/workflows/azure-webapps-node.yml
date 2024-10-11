@@ -50,3 +50,5 @@ jobs:
           #slot-name: 'production'
           publish-profile: ${{secrets.GIT_TEST_NODE_SECRET_PROFILE}} # Store your publish profile as a secret
           package: "./deploy.zip"
+      - name: List contents of ZIP file
+        run: unzip -l deploy.zip
