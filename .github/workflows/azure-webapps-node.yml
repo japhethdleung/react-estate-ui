@@ -74,5 +74,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: github-test-node
-        publish-profile: ${{ secrets.git_test_node_secret_profile }}
+        publish-profile: ${{ secrets.GIT_TEST_NODE_SECRET_PROFILE }}
         package: .
