@@ -19,7 +19,7 @@
 
 on:
   push:
-    branches: completed
+    branches: starter
   workflow_dispatch:
 
 env:
