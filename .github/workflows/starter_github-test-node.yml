@@ -57,6 +57,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: "github-test-node"
-          slot-name: "Production"
           package: "./dist"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_18327E62E68B437497BFAFB4E2210409 }}
